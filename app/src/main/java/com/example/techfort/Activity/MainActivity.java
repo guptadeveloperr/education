@@ -57,7 +57,6 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseFirestore.getInstance();
 
-
         //Bottom Click Listener
 
         mainbottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -65,10 +65,6 @@ public class SetupActivity extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-
-        //Status Bar Color
-        getWindow().setStatusBarColor(ContextCompat.getColor(SetupActivity.this,R.color.color_white));
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -82,7 +78,6 @@ public class SetupActivity extends AppCompatActivity {
         setupProgress.setVisibility(View.VISIBLE);
         setupBtn.setEnabled(false);
 
-
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -90,7 +85,7 @@ public class SetupActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     if (task.getResult().exists()) {
-//                        Toast.makeText(SetupActivity.this, "Data Exists" , Toast.LENGTH_SHORT).show();
+//                      Toast.makeText(SetupActivity.this, "Data Exists" , Toast.LENGTH_SHORT).show();
 
                         String name = task.getResult().getString("name");
                         String image = task.getResult().getString("image");
@@ -107,7 +102,7 @@ public class SetupActivity extends AppCompatActivity {
 
                 } else {
                     String e = task.getException().getMessage();
-                    Toast.makeText(SetupActivity.this, "FireStore Retrive Error" + e, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetupActivity.this, "FireStore Error" + e, Toast.LENGTH_SHORT).show();
                 }
                 setupProgress.setVisibility(View.INVISIBLE);
                 setupBtn.setEnabled(true);
