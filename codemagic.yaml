@@ -9,6 +9,9 @@ workflows:
 
     scripts:
 
+
+emulator -avd emulator > /dev/null 2>&1 &
+
       - name: Run tests
 
         script: ./gradlew test
