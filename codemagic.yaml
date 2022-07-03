@@ -10,7 +10,6 @@ workflows:
     scripts:
 
 
-    -avd emulator > /dev/null 2>&1 &
 
       - name: Run tests
 
